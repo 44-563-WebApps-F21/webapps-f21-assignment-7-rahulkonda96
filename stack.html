@@ -96,6 +96,7 @@
 		<button onclick="makeNewDiv()">Push value</button>
 		<button  onclick="popItem()">Pop</button>
 		<button  onclick="Zapvalues()">Zap values</button>
+		<button class="zapbtn" onclick="unique()">Unique</button>
 
 </body>
 <script>
@@ -135,6 +136,20 @@
 
 
 	}
+
+	function unique(){
+	let stackItems = document.getElementsByClassName('stack');
+    for (let i = stackItems.length-1; i >=0; i--) {
+        let stackItem = stackItems[i].innerHTML;
+        for (let j = i-1; j >= 0; j--) {
+            if (stackItem == stackItems[j].innerHTML) {
+                stackItems[j].remove();								
+            }
+
+       }
+        
+    }
+        }
 </script>
 
 </html>
