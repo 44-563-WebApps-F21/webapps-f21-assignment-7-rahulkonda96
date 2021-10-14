@@ -26,40 +26,82 @@
   <p id="distance" style="color:darkblue;text-align:left">Distance is unknown</p> 
   
   <div class="container row" >
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div> 
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-0" onclick="check(0)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-1" onclick="check(1)" height="200" width="200"></div> 
+    <div class="col-sm-2"><img src="plants.jpg" id="img-2" onclick="check(2)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-3" onclick="check(3)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-4" onclick="check(4)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-5" onclick="check(5)" height="200" width="200"></div>
   </div> 
 
   <div class="container row">
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div> 
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-6" onclick="check(6)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-7" onclick="check(7)" height="200" width="200"></div> 
+    <div class="col-sm-2"><img src="plants.jpg" id="img-8" onclick="check(8)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-9" onclick="check(9)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-10" onclick="check(10)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-11" onclick="check(11)" height="200" width="200"></div>
   </div>
 
   <div class="container row">
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div> 
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-12" onclick="check(12)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-13" onclick="check(13)" height="200" width="200"></div> 
+    <div class="col-sm-2"><img src="plants.jpg" id="img-14" onclick="check(14)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-15" onclick="check(15)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-16" onclick="check(16)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-17" onclick="check(17)" height="200" width="200"></div>
   </div>
   
   <div class="container row">
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div> 
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
-    <div class="col-sm-2"><img src="plants.jpg" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-18" onclick="check(18)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-19" onclick="check(19)" height="200" width="200"></div> 
+    <div class="col-sm-2"><img src="plants.jpg" id="img-20" onclick="check(20)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-21" onclick="check(21)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-22" onclick="check(22)" height="200" width="200"></div>
+    <div class="col-sm-2"><img src="plants.jpg" id="img-23" onclick="check(23)" height="200" width="200"></div>
   </div>
 
+  <script>
+    var ids = [];
+    var triesCount=0;
+    var animalLocation=13;
+    var distanceOfAnimal = "unknown";
+    for (var i = 0; i < 24; i++) {
+        ids.push("img-" +i)
+    }
+    function check(position){
+        let id = ids[position];
+        if(position==animalLocation){
+            document.getElementById(id).src="animal.jpg";
+        }
+        else{
+            document.getElementById(id).src="pileofdirt.jpg";
+        }
+        triesCount++;
+        document.getElementById("tries").innerHTML = "Triesis count is " +triesCount;
+        distanceOfAnimal = distance(position, animalLocation)
+        document.getElementById("distance").innerHTML = "Distance is " +distanceOfAnimal;  
+    }
+    function distance(pos1, pos2) {
+  var horizontal = Math.abs(getPos(pos1)[0] - getPos(pos2)[0])
+  var vertical = Math.abs(getPos(pos1)[1] - getPos(pos2)[1])
+  if (horizontal > vertical)
+    return horizontal
+  else
+    return vertical
+}
+function getPos(val) {
+  var elementValue = 0
+  for (var i = 0; i <= 3; i++) {
+    for (var j = 0; j <= 5; j++) {
+      if (elementValue == val) {
+        return [i++, j++]
+      }
+      elementValue++
+    }
+  }
+}
+
+</script>
 </body>
 </html>
